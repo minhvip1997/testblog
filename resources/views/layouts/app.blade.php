@@ -50,7 +50,7 @@
             <ul class="dropdown-menu" role="menu">
               @if (Auth::user()->can_post())
               <li>
-                <a href="{{ url('/new-post') }}">Add new post</a>
+                <a href="{{ url('auth/newpost') }}">Add new post</a>
               </li>
               <li>
                 <a href="{{ url('/user/'.Auth::id().'/posts') }}">My Posts</a>

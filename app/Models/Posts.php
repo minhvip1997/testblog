@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Posts extends Model
 {
     use HasFactory;
-    protected $table = "Posts";
+    protected $table = "posts";
 
     public function comments()
     {

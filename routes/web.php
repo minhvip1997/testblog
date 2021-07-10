@@ -19,7 +19,7 @@ Route::get('/', function () {
 });*/
 
 Route::get('app','App\Http\Controllers\PostController@index');
-Route::get('auth','App\Http\Controllers\PostController@index');
+Route::get('/','App\Http\Controllers\PostController@index');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login','App\Http\Controllers\PostController@getLogin');
@@ -27,8 +27,14 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('register','App\Http\Controllers\PostController@postRegister');
     Route::post('login','App\Http\Controllers\PostController@postLogin');
     Route::get('logout','App\Http\Controllers\PostController@getLogout');
-    
+
+    Route::get('newpost','App\Http\Controllers\PostController@getCreate');
+    Route::post('newpost','App\Http\Controllers\PostController@postCreate');
+    Route::get('edit/{slug}','App\Http\Controllers\PostController@getEdit');
+    Route::post('edit','App\Http\Controllers\PostController@postEdit');
+    Route::get('delete/{id}', 'App\Http\Controllers\PostController@deletePost');
   });
+  Route::get('showpost','App\Http\Controllers\PostController@getShow');
 //   Route::get('login','App\Http\Controllers\PostController@getLogin');
 //   Route::get('register','App\Http\Controllers\PostController@getRegister');
 //   Route::post('register','App\Http\Controllers\PostController@postRegister');
