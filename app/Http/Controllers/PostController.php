@@ -119,9 +119,18 @@ class PostController extends Controller
         return redirect('auth/newpost')->with('thongbao','Tạo posts thành công');
     }
 
-    public function getShow()
+    public function getShow($slug)
     {
-        return view('posts.show');
+        $post = Posts::where('slug', $slug)->first();
+
+        if ($post) {
+          if ($post->active == false)
+            return redirect('/')->withErrors('requested page not found');
+          $comments = $post->comments;
+        } else {
+          return redirect('/')->withErrors('requested page not found');
+        }
+        return view('posts.show')->withPost($post)->withComments($comments);
     }
 
     public function getEdit(Request $request, $slug)
