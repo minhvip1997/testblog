@@ -19,7 +19,7 @@
                                 </div>
                             @endif
                 <div class="card-body">
-                    <form method="POST" action="auth/login">
+                    <form method="POST" action="login">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                         <div class="form-group row">
